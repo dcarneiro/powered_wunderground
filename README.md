@@ -2,8 +2,6 @@
 
 This gem is based on wnadeau wunderlust gem: https://github.com/fiksu/partitioned. Since I had different needs for the API (tts friendly forecast descriptions) that would change the scope of the wunderlust gem. I decided to create this one.
 
-TODO: Delete this and the text above, and describe your gem
-
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -22,7 +20,11 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+PoweredWunderground.new(api_key: 'your_api_key', language: 'pt').forecast('pt', 'porto')
+``
+
+next steps: buff the forecast reply
 
 ## Development
 

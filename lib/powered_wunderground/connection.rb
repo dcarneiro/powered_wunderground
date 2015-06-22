@@ -18,6 +18,7 @@ module PoweredWunderground
 
     def forecast(country, city)
       wunderground_response = wunderground_forecast(country, city)
+      wunderground_response['forecast']['txt_forecast']['forecastday'].first['fcttext_metric']
     end
 
     def language
