@@ -22,7 +22,7 @@ Or install it yourself as:
 
 ```ruby
 PoweredWunderground.new(api_key: 'your_api_key', language: 'pt').forecast('pt', 'porto')
-``
+```
 
 next steps: buff the forecast reply
 
