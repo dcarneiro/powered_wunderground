@@ -1,4 +1,4 @@
-# Powered::Wunderground
+# PoweredWunderground
 
 This gem is based on wnadeau wunderlust gem: https://github.com/wnadeau/wunderground. Since I had different needs for the API (tts friendly forecast descriptions) that would change the scope of the wunderlust gem. I decided to create this one.
 
