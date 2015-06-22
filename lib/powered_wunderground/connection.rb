@@ -4,10 +4,12 @@ module PoweredWunderground
   class Connection
     include LanguageMapper
 
-    attr_accessor :api_key
+    attr_reader :api_key
+    attr_accessor :language
 
     def initialize(api_key)
       @api_key = api_key
+      @language = 'en'
     end
 
     def base_api_url
@@ -18,15 +20,19 @@ module PoweredWunderground
       wunderground_response = wunderground_forecast(country, city)
     end
 
-    def language_code
-      @language_code || 'EN'
+    def language
+      @language || 'EN'
+    end
+
+    def language=(code)
+      @language = fetch_language(code)
     end
 
     private
 
     def wunderground_forecast(country, city)
       conn = Faraday.new(url: base_api_url)
-      response = conn.get "forecast/lang:#{language_code}/q/#{country}/#{city}.json"
+      response = conn.get "forecast/lang:#{language}/q/#{country}/#{city}.json"
       JSON.parse response.body
     end
   end

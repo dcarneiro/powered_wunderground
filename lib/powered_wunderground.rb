@@ -2,13 +2,28 @@ require 'powered_wunderground/version'
 require 'powered_wunderground/connection'
 
 module PoweredWunderground
-  VERSION = '0.0.1'
-
   class << self
-    attr_accessor :api_key
 
-    def new(api_key)
+    def new(args)
+      extra_params = {}
+
+      if args.is_a?(String)
+        start_conection_by_api_key(args)
+      else
+        start_conection_by_hash(args)
+      end
+    end
+
+    def start_conection_by_api_key(api_key)
       PoweredWunderground::Connection.new(api_key)
+    end
+
+    def start_conection_by_hash(hash)
+      api_key = hash[:api_key]
+      fail "invalid api key #{api_key}" if api_key.nil?
+      conn = PoweredWunderground::Connection.new(api_key)
+      conn.language = hash[:language_code] if hash[:language_code]
+      conn
     end
   end
 end

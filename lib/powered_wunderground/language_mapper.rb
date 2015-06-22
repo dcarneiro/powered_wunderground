@@ -1,10 +1,10 @@
 module PoweredWunderground
   module LanguageMapper
-    def fetch(language)
-      map[language.upcase] || language.upcase
+    def fetch_language(code)
+      language_map[code.upcase] || code.upcase
     end
 
-    def map
+    def language_map
       {
         'PT' => 'BR', # this makes me sad
       }
