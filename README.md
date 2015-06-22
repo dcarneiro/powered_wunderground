@@ -1,6 +1,6 @@
 # Powered::Wunderground
 
-This gem is based on wnadeau wunderlust gem: https://github.com/fiksu/partitioned. Since I had different needs for the API (tts friendly forecast descriptions) that would change the scope of the wunderlust gem. I decided to create this one.
+This gem is based on wnadeau wunderlust gem: https://github.com/wnadeau/wunderground. Since I had different needs for the API (tts friendly forecast descriptions) that would change the scope of the wunderlust gem. I decided to create this one.
 
 ## Installation
 
@@ -22,7 +22,10 @@ Or install it yourself as:
 
 ```ruby
 PoweredWunderground.new(api_key: 'your_api_key', language: 'pt').forecast('pt', 'porto')
+
+> "Mainly cloudy. Low 16C."
 ```
+
 
 next steps: buff the forecast reply
 
