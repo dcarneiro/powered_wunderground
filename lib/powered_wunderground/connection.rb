@@ -19,8 +19,9 @@ module PoweredWunderground
 
     def coord(latitude, longitude)
       geo_response = wunderground_geolookup(latitude, longitude)
+      fail geo_response['response']['error']['description'] if geo_response['response']['error']
       city = geo_response['location']['city']
-      country = geo_response['location']['country']
+      country = geo_response['location']['country_iso3166']
       w_response = wunderground_coord_forecast(latitude, longitude)
       hash = w_response['forecast']['txt_forecast']['forecastday'].first
       Response.new(country, city, hash)
