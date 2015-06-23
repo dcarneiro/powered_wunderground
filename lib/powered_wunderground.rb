@@ -1,6 +1,6 @@
 require 'powered_wunderground/version'
-require 'powered_wunderground/response'
 require 'powered_wunderground/connection'
+require 'powered_wunderground/response'
 
 module PoweredWunderground
   class << self
