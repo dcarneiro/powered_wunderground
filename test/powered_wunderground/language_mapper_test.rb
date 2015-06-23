@@ -11,15 +11,15 @@ module PoweredWunderground
     end
 
     def test_base_api_url
-      assert_equal @conn.base_api_url, "http://api.wunderground.com/api/my_awesome_key/"
+      assert_equal @conn.base_api_url, 'http://api.wunderground.com/api/my_awesome_key/'
     end
 
     def test_fetch_with_map
-      assert_equal @conn.fetch_language('pt') , 'BR'
+      assert_equal @conn.fetch_language('pt'), 'BR'
     end
 
     def test_fetch_without_map
-      assert_equal @conn.fetch_language('en') , 'EN'
+      assert_equal @conn.fetch_language('en'), 'EN'
     end
   end
 end

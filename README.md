@@ -20,14 +20,17 @@ Or install it yourself as:
 
 ## Usage
 
+by coords
 ```ruby
-PoweredWunderground.new(api_key: 'your_api_key', language: 'pt').forecast('pt', 'porto')
-=> "Nublado. Máxima de 21°C. Ventos O a 10 a 15 km/h."
-PoweredWunderground.new(api_key: '84ba182600b17c03', language: 'fr').forecast('pt', 'porto')
-=> "Nuageux. Maximales : 21 ºC. Vents O soufflant de 10 à 15 km/h."
+pw = PoweredWunderground.new(api_key: api_key, language: 'pt')
+response = pw.coord(37.77, -122.39)
+response.powered_output
+=> {
+  :text=>"Nuvens matinais seguidas de sol da parte da tarde. Máxima de 68°F. Ventos O a 10 a 20 mph.",
+  :city=>"San Francisco",
+  :country=>"US"
+}
 ```
-
-next steps: buff the forecast reply
 
 ## Development
 

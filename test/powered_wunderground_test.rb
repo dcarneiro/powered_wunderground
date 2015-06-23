@@ -19,6 +19,6 @@ class PoweredWundergroundTest < Minitest::Test
   end
 
   def test_version
-    assert_equal '0.0.1', PoweredWunderground::VERSION
+    assert_equal '0.0.3', PoweredWunderground::VERSION
   end
 end

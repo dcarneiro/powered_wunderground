@@ -1,12 +1,10 @@
 require 'powered_wunderground/version'
+require 'powered_wunderground/response'
 require 'powered_wunderground/connection'
 
 module PoweredWunderground
   class << self
-
     def new(args)
-      extra_params = {}
-
       if args.is_a?(String)
         start_conection_by_api_key(args)
       else
