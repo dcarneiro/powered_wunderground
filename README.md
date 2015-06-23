@@ -22,14 +22,20 @@ Or install it yourself as:
 
 by coords
 ```ruby
-pw = PoweredWunderground.new(api_key: api_key, language: 'pt')
-response = pw.coord(37.77, -122.39)
-response.powered_output
-=> {
-  :text=>"Nuvens matinais seguidas de sol da parte da tarde. Máxima de 68°F. Ventos O a 10 a 20 mph.",
-  :city=>"San Francisco",
-  :country=>"US"
-}
+pw = PoweredWunderground.new(api_key: api_key, language: 'en')
+resp = pw.coord(41.16, -8.6)
+
+resp.to_s                       # "Partly cloudy. Low 16C."
+resp.powered_output             # {:text=>"Partly cloudy. Low 16C.", :city=>"Porto", :country=>"PT"}
+```
+
+by city
+```ruby
+pw = PoweredWunderground.new(api_key: api_key, language: 'en')
+resp = pw.city('PT', 'Porto')
+
+resp.to_s                       # "Partly cloudy. Low 16C."
+resp.powered_output             # {:text=>"Partly cloudy. Low 16C.", :city=>"Porto", :country=>"PT"}
 ```
 
 ## Development
