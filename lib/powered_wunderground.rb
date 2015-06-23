@@ -22,7 +22,7 @@ module PoweredWunderground
       api_key = hash[:api_key]
       fail "invalid api key #{api_key}" if api_key.nil?
       conn = PoweredWunderground::Connection.new(api_key)
-      conn.language = hash[:language_code] if hash[:language_code]
+      conn.language = hash[:language] if hash[:language]
       conn
     end
   end
