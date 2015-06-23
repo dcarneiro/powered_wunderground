@@ -17,8 +17,4 @@ class PoweredWundergroundTest < Minitest::Test
     assert conn.class, PoweredWunderground::Connection
     assert conn.language, 'ES'
   end
-
-  def test_version
-    assert_equal '0.0.3', PoweredWunderground::VERSION
-  end
 end
