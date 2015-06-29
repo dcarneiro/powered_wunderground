@@ -1,4 +1,5 @@
 require 'powered_wunderground/version'
+require 'powered_wunderground/weather_decorator'
 require 'powered_wunderground/connection'
 require 'powered_wunderground/response'
 

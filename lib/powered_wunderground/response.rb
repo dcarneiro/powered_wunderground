@@ -15,16 +15,21 @@ module PoweredWunderground
 
     def powered_output
       {
-        language_code: language_code,
-        text: to_s,
+        country: country,
         city: city,
-        country: country
+        language_code: language_code,
+        original_text: to_s,
+        decorated_text: decorated_text,
       }
     end
 
     alias_method :po, :powered_output
 
     private
+
+    def decorated_text
+      WeatherDecorator.new(language_code, to_s).decorate
+    end
 
     def fcttext_field(country)
       if imperial_system.include? country

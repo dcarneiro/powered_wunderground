@@ -1,0 +1,17 @@
+winds:
+  E: East
+  EN: East-northeast
+  ESE: East-southeast
+  N: North
+  NE: Northeast
+  NNE: North-northeast
+  NNW: North-northwest
+  NW: Northwest
+  W: West
+  WNW: West-northwest
+  WSW: West-southwest
+  S: South
+  SE: Southeast
+  SSE: South-southeast
+  SSW: South-southwest
+  SW: Southwest

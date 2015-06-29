@@ -1,0 +1,17 @@
+winds:
+  E: Este
+  ENE: Este/Nordeste
+  ESE: Este/Sudeste
+  N: Norte
+  NE: Nordeste
+  NNE: Norte/Nordeste
+  NNO: Norte/Noroeste
+  "NO": Noroeste
+  O: Oeste
+  ONO: Oeste/Noroeste
+  OSO: Oeste/Sudoeste
+  S: Sul
+  SE: Sudeste
+  SSE: Sul/Sudeste
+  SSO: Sul/Sudoeste
+  SO: Sudoeste
