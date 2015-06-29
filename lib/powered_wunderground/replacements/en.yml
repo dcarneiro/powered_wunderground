@@ -1,6 +1,7 @@
 winds:
+  word: Winds
   E: East
-  EN: East-northeast
+  ENE: East-northeast
   ESE: East-southeast
   N: North
   NE: Northeast

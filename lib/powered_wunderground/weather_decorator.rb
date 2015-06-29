@@ -8,16 +8,41 @@ module PoweredWunderground
     end
 
     def decorate
-      tokens = text.split(".")
-      replacements.each do |replacement|
-        tokens[-1].gsub!(" #{replacement[0]} ", " #{replacement[1]} ")
-      end
-      tokens[-1] = wind_pronoum_handling tokens[-1]
+      tokens = text.split('.')
+      decorate_temperature_part(tokens)
+      decorate_wind_part(tokens)
       "#{tokens.join('.')}."
     end
 
-    def replacements
-      YAML::load_file(replacement_file)['winds']
+    def decorate_temperature_part(tokens)
+      temperature_token_index = temperature_token_position(tokens)
+      return if temperature_token_index.nil?
+      tokens[temperature_token_index].sub!(/ (\d+)F$/, ' \1ºF')
+    end
+
+    def decorate_wind_part(tokens)
+      wind_token_index = wind_token_position(tokens)
+      return if wind_token_index.nil?
+      wind_replacements.each do |replacement|
+        tokens[wind_token_index].gsub!(" #{replacement[0]} ", " #{replacement[1]} ")
+      end
+      tokens[wind_token_index] = wind_pronoum_handling tokens[wind_token_index]
+    end
+
+    def temperature_token_position(tokens)
+      tokens.index { |t| t.match /\s\d+(C|F)$/ }
+    end
+
+    def wind_token_position(tokens)
+      tokens.index { |t| t.match wind_replacements['word'] }
+    end
+
+    def wind_replacements
+      replacements_yaml['winds']
+    end
+
+    def replacements_yaml
+      @yaml ||= YAML.load_file(replacement_file)
     end
 
     def wind_pronoum_handling(text)
@@ -29,8 +54,8 @@ module PoweredWunderground
     end
 
     def replacement_file
-      file = File.join 'lib', 'powered_wunderground', 'replacements', "#{language_code}.yml"
-      fail "file not found" unless File.exists? file
+      file = File.join __dir__, 'replacements', "#{language_code}.yml"
+      fail "file not found #{file}" unless File.exist? file
       file
     end
   end

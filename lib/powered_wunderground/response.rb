@@ -19,7 +19,7 @@ module PoweredWunderground
         city: city,
         language_code: language_code,
         original_text: to_s,
-        decorated_text: decorated_text,
+        decorated_text: decorated_text
       }
     end
 

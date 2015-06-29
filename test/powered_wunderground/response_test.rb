@@ -22,7 +22,7 @@ module PoweredWunderground
     def test_powered_output
       expected = {
         original_text: 'Máxima de 20°C. Ventos O a 15 a 30 km/h.',
-        decorated_text: "Máxima de 20°C. Ventos Oeste de 15 a 30 km/h.",
+        decorated_text: 'Máxima de 20°C. Ventos Oeste de 15 a 30 km/h.',
         city: 'Porto',
         country: 'PT',
         language_code: 'pt'
