@@ -26,7 +26,7 @@ pw = PoweredWunderground.new(api_key: api_key, language: 'en')
 resp = pw.coord(41.16, -8.6)
 
 resp.to_s                       # "Partly cloudy. Low 16C."
-resp.powered_output             # {:text=>"Partly cloudy. Low 16C.", :city=>"Porto", :country=>"PT"}
+resp.powered_output             # {text: "Partly cloudy. Low 16C.", city: "Porto", country: "PT", language_code: 'pt'}
 ```
 
 by city
@@ -35,7 +35,7 @@ pw = PoweredWunderground.new(api_key: api_key, language: 'en')
 resp = pw.city('PT', 'Porto')
 
 resp.to_s                       # "Partly cloudy. Low 16C."
-resp.powered_output             # {:text=>"Partly cloudy. Low 16C.", :city=>"Porto", :country=>"PT"}
+resp.powered_output             # {text: "Partly cloudy. Low 16C.", city: "Porto", country: "PT", language_code: 'pt'}
 ```
 
 ## Development

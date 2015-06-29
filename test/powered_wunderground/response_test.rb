@@ -12,18 +12,19 @@ module PoweredWunderground
         'fcttext_metric'  => 'Máxima de 20°C. Ventos O a 15 a 30 km/h.',
         'pop'             => '0'
       }
-      @response = Response.new('PT', 'Porto', params)
+      @response = Response.new('PT', 'Porto', 'pt', params)
     end
 
     def test_to_s
       assert_equal 'Máxima de 20°C. Ventos O a 15 a 30 km/h.', @response.to_s
     end
 
-    def test_po
+    def test_powered_output
       expected = {
         text: 'Máxima de 20°C. Ventos O a 15 a 30 km/h.',
         city: 'Porto',
-        country: 'PT'
+        country: 'PT',
+        language_code: 'pt'
       }
 
       assert_equal expected, @response.po

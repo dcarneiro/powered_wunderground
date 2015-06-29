@@ -5,11 +5,11 @@ module PoweredWunderground
     include LanguageMapper
 
     attr_reader :api_key
-    attr_accessor :language
-    attr_accessor :units
+    attr_accessor :original_language, :language, :units
 
     def initialize(api_key)
       @api_key = api_key
+      @original_language = 'en'
       @language = 'en'
     end
 
@@ -24,13 +24,13 @@ module PoweredWunderground
       country = geo_response['location']['country_iso3166']
       w_response = wunderground_coord_forecast(latitude, longitude)
       hash = w_response['forecast']['txt_forecast']['forecastday'].first
-      Response.new(country, city, hash)
+      Response.new(country, city, original_language, hash)
     end
 
     def city(country, city)
       w_response = wunderground_city_forecast(country, city)
       hash = w_response['forecast']['txt_forecast']['forecastday'].first
-      Response.new(country, city, hash)
+      Response.new(country, city, original_language, hash)
     end
 
     def forecast(country, city)
@@ -43,6 +43,7 @@ module PoweredWunderground
     end
 
     def language=(code)
+      @original_language = code.downcase
       @language = fetch_language(code)
     end
 
