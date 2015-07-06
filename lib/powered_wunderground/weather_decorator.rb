@@ -17,7 +17,7 @@ module PoweredWunderground
     def decorate_temperature_part(tokens)
       temperature_token_index = temperature_token_position(tokens)
       return if temperature_token_index.nil?
-      tokens[temperature_token_index].sub!(/ (\d+)F$/, ' \1°F')
+      tokens[temperature_token_index].sub!(/ (\d+)(F|C)$/, ' \1°\2')
     end
 
     def decorate_wind_part(tokens)

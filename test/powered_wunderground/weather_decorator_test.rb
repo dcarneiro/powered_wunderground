@@ -27,6 +27,14 @@ module PoweredWunderground
           subject = WeatherDecorator.new('en', input)
           assert_equal expected, subject.decorate
         end
+
+        it 'should also convert degrees in metric units (15C to 15ªC)' do
+          input = 'Clear. Low 15C.'
+          expected = "Clear. Low 15\xC2\xB0C."
+
+          subject = WeatherDecorator.new('en', input)
+          assert_equal expected, subject.decorate
+        end
       end
 
       describe 'portuguese strings' do
